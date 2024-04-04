@@ -1,0 +1,213 @@
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    
+    padding: 16px 0;
+    z-index: 10;
+    background: linear-gradient(180deg, #000 -9.73%, rgba(217, 217, 217, 0.00) 93.41%);
+
+
+}
+.header {
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1680px;
+        margin: 0 auto;
+    }
+    &__phone {
+        margin-left: auto;
+        display: block;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        color: #fff;
+        text-decoration: none;
+        transition: color .3s;
+        &:hover {
+            color: $green;
+        }
+    }
+    &__btn {
+        border: none;
+        background: transparent;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        color: #fff;
+        margin-left: 80px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        cursor: pointer;
+        transition: color .3s;
+        &:hover {
+            color: $green;
+        }
+        &::after {
+            content: '';
+            display: block;
+            width: 32px;
+            height: 32px;
+            border-radius: 100%;
+            background: $green;
+        }
+    }
+    &__nav {
+        position: absolute;
+        top: 0;
+        right: -100%;
+        width: 40%;
+        transition: right .3s;
+        background: #fff;
+        z-index: 11;
+        &_active {
+            right: 0;
+            position: fixed;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            max-height: 100vh;
+            &::-webkit-scrollbar {
+                width: 4px;
+                
+              }
+            &::-webkit-scrollbar-track {
+                background: transparent;
+              }
+            &::-webkit-scrollbar-thumb {
+                background-color: #B7B7B7;
+                border-radius: 3px;
+              }
+        }
+    }
+    &_transparent {
+        border-bottom: 1px solid $text-color;
+        background: #fff;
+        position: relative;
+        .header__btn {
+            color: $text-color;
+        }
+        .header__phone {
+            color: $text-color;
+            font-weight: 400;
+        }
+        .logo {
+            width: 149px;
+        }
+    }
+}
+.menu {
+    &__item {
+        &__submenu {
+            position: relative;
+            span {
+                cursor: pointer;
+            }
+        }
+    }
+   
+    background: #fff;
+    list-style-type: none;
+    padding: 48px 36px;
+   
+    &__link {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+        padding: 20px 0;
+        color: $text-color;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all .3s;
+        font-size: 18px;
+        &::before {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 24px;
+            background: $green;
+            border-radius: 100%;
+            transition: all .3s;
+        }
+        &:hover {
+            color: $green;
+            &::before {
+                background: #fff;
+                outline: 1px solid $green;
+            }
+        }
+        
+    }
+    &__close {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        width: 24px;
+        height: 24px;
+        border: none;
+        background: url(../img/icons/close.svg) no-repeat center/contain;
+        cursor: pointer;
+    }
+}
+.submenu {
+    list-style-type: none;
+    
+    overflow: hidden;
+    max-height: 1px;
+    width: 1px;
+    padding: 0;
+    opacity: 0;
+    margin: -1px;
+    clip: rect(0 0 0 0);
+    position: absolute;
+    transition: max-height .3s;
+    &__link {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+        padding: 12px 0;
+        color: $text-color;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all .3s;
+        font-size: 14px;
+        &::before {
+            content: '';
+            display: block;
+            width: 16px;
+            height: 16px;
+            background: $green;
+            border-radius: 100%;
+            transition: all .3s;
+        }
+        &:hover {
+            color: $green;
+            &::before {
+                background: #fff;
+                outline: 1px solid $green;
+            }
+        }
+    }
+    &_active {
+        max-height: 210px;
+        width: 100%;
+        opacity: 1;
+        padding-left: 32px;
+        position: relative;
+    }
+}
+.logo {
+    width: 260px;
+    display: block;
+    img {
+        width: 100%;
+        object-fit: contain;
+        object-position: center;
+    }
+}
